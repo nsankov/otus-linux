@@ -1,35 +1,37 @@
 # -*- mode: ruby -*-
 # vim: set ft=ruby :
 
+home = ENV['HOME'] # Используем глобальную переменную $HOME
+
 MACHINES = {
   :otuslinux => {
         :box_name => "centos/7",
         :ip_addr => '192.168.11.101',
 	:disks => {
 		:sata1 => {
-			:dfile => './sata1.vdi',
+			:dfile => home + '/VirtualBox VMs/sata1.vdi',
 			:size => 250,
 			:port => 1
 		},
 		:sata2 => {
-                        :dfile => './sata2.vdi',
+                        :dfile => home + '/VirtualBox VMs/sata2.vdi',
                         :size => 250, # Megabytes
 			:port => 2
 		},
                 :sata3 => {
-                        :dfile => './sata3.vdi',
+                        :dfile => home + '/VirtualBox VMs/sata3.vdi',
                         :size => 250,
                         :port => 3
                 },
                 :sata4 => {
-                        :dfile => './sata4.vdi',
+                        :dfile => home + '/VirtualBox VMs/sata4.vdi',
                         :size => 250, # Megabytes
                         :port => 4
                 }
 
 	}
 
-		
+
   },
 }
 
