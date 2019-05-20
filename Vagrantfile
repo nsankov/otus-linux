@@ -10,24 +10,34 @@ MACHINES = {
 	:disks => {
 		:sata1 => {
 			:dfile => home + '/VirtualBox VMs/sata1.vdi',
-			:size => 250,
+			:size => 5120,
 			:port => 1
 		},
 		:sata2 => {
-                        :dfile => home + '/VirtualBox VMs/sata2.vdi',
-                        :size => 250, # Megabytes
+            :dfile => home + '/VirtualBox VMs/sata2.vdi',
+            :size => 5120, # Megabytes
 			:port => 2
 		},
-                :sata3 => {
-                        :dfile => home + '/VirtualBox VMs/sata3.vdi',
-                        :size => 250,
-                        :port => 3
-                },
-                :sata4 => {
-                        :dfile => home + '/VirtualBox VMs/sata4.vdi',
-                        :size => 250, # Megabytes
-                        :port => 4
-                }
+        :sata3 => {
+            :dfile => home + '/VirtualBox VMs/sata3.vdi',
+            :size => 5120,
+            :port => 3
+        },
+        :sata4 => {
+            :dfile => home + '/VirtualBox VMs/sata4.vdi',
+            :size => 5120, # Megabytes
+            :port => 4
+        },
+        :sata5 => {
+            :dfile => home + '/VirtualBox VMs/sata5.vdi',
+            :size => 5120, # Megabytes
+            :port => 5
+        },
+        :sata6 => {
+            :dfile => home + '/VirtualBox VMs/sata6.vdi',
+            :size => 5120, # Megabytes
+            :port => 6
+        }
 
 	}
 
@@ -69,6 +79,8 @@ Vagrant.configure("2") do |config|
 	      mkdir -p ~root/.ssh
               cp ~vagrant/.ssh/auth* ~root/.ssh
 	      yum install -y mdadm smartmontools hdparm gdisk
+	      mdadm --zero-superblock --force /dev/sd{b,c,d,e,f,g}
+          mdadm --create --verbose /dev/md0 -l 1 -n 2 /dev/sd{b,c,d,e,f,g}
   	  SHELL
 
       end
