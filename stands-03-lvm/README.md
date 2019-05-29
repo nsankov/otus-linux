@@ -38,7 +38,7 @@
 
 [![asciicast](https://asciinema.org/a/mysZOLJsLAHHxh9TyvQTtFsJY.svg)](https://asciinema.org/a/mysZOLJsLAHHxh9TyvQTtFsJY)
 
-**btrfs/zfs /opt**
+**zfs /opt with cache and snapshot**
 
 [hw3_3.cast](./hw3_3.cast)
 
